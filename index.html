@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="js/two.js"></script>
+        <script type="text/javascript" src="js/algorithms.js"></script>
+        <script type="text/javascript" src="js/graph.js"></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Convex Hull Algorithms</h1>
+            <h3>Animating the computation of convex hulls in two dimensions</h4>
+        </header>
+        
+        <p>
+            Computing the convex hull of a set of points is a fundamental problem in the field of computational geometry.
+            For those unaware of what a convex hull is: in 2D, imagine snapping an elastic band around a set of points - 
+            the convex hull is the set of points that form the perimeter created by the elastic band. For more information,
+            check <a href="https://en.wikipedia.org/wiki/Convex_hull">this</a> Wikipedia article out.
+        </p>
+        
+        <p>
+            The purpose of this application is to provide a visualization of the execution of a few popular convex hull algorithms.
+            Click <a href="https://github.com/ermel272/convex-hull-animations" target="_blank">here</a> for the code.
+        </p>
+        
+        <p>
+            Namely:
+            <ul>
+                <!-- <li><a href="https://en.wikipedia.org/wiki/Gift_wrapping_algorithm" target="_blank">Gift Wrapping</a> - <i>O(nh)</i> </li> -->
+                <!-- <li><a href="https://en.wikipedia.org/wiki/Graham_scan" target="_blank">Graham Scan</a> - <i>O(n log n)</i> </li> -->
+                <li><a href="https://en.wikipedia.org/wiki/Quickhull" target="_blank">Quick hull</a> - <i>O(n log n)</i> expected </li>
+            </ul>
+            Where <i>n</i> is the number of vertices in the input and <i>h</i> is the number of vertices in the convex hull of the input.
+        <p>
+    
+        <table>
+            ><tr>
+                <td>
+                    <div id="canvas"/>
+                </td>
+            </tr>
+            <tr
+                <td class="center">
+                    Enter number of vertices:
+                    <input type="number" id="num_vertices" name="vertices" min="1" max="1000">
+                    <button id="add_vertices" name="add_vertices" onclick="createVertices()"> Create </button>
+                </td>
+            </tr>
+            <tr>
+                <td class="center">
+                    Algorithm:
+                    <select id="algorithm">
+                        <!-- <option value="gift_wrap">Gift Wrapping</option> -->
+                        <!-- <option value="graham_scan">Graham Scan</option> -->
+                        <option value="quick_hull">Quick Hull</option>
+                    </select>
+                    <button id="execute" name="execute" onclick="execute()"> Execute </button>
+                    <button id="pause" name="pause" onclick="pause()" disabled="true">❚❚</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="center">
+                    Execution Speed:
+                    <div id="slidecontainer">
+                        <input type="range" min="1" max="100" value="12" class="slider" id="speed">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
